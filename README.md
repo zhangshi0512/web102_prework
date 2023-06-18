@@ -18,13 +18,19 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [ ] List anything else that you can get done to improve the app functionality!
+* [x] Deployed on Netlify for interested people to check.
+
+## Demo Website Link
+
+Here's a link to the website:
+
+[https://sea-monster-crowdfunding.netlify.app/](https://sea-monster-crowdfunding.netlify.app/)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
 
 [Imgur](https://imgur.com/rRgH39f.gif)
-
 <img src='https://i.imgur.com/rRgH39f.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
