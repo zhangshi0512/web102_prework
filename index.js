@@ -45,8 +45,7 @@ function addGamesToPage(games) {
         <img src="${game.img}" alt="${game.name}" class="game-img" />
         <h3>${game.name}</h3>
         <p>${game.description}</p>
-        <p>Pledged: $${game.pledged.toLocaleString()}</p>
-        <p>Goal: $${game.goal.toLocaleString()}</p>
+        
         <p>Backers: ${game.backers.toLocaleString()}</p>
     `;
 
@@ -97,13 +96,14 @@ gamesCard.innerHTML = GAMES_JSON.length;
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
  */
-
+// Define the unfundedGames variable outside of the function
+let unfundedGames = [];
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
   deleteChildElements(gamesContainer);
 
   // use filter() to get a list of games that have not yet met their goal
-  const unfundedGames = GAMES_JSON.filter((game) => game.pledged < game.goal);
+  unfundedGames = GAMES_JSON.filter((game) => game.pledged < game.goal);
   // use the function we previously created to add the unfunded games to the DOM
   addGamesToPage(unfundedGames);
 }
@@ -193,7 +193,15 @@ const sortedGames = GAMES_JSON.sort((item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+const [firstGame, secondGame, ...remainingGames] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+// Assuming you have the top funded game in the variable 'firstGame'
+const firstGameNameElement = document.createElement("h4");
+firstGameNameElement.textContent = firstGame.name;
+firstGameContainer.appendChild(firstGameNameElement);
 
 // do the same for the runner up item
+const secondGameNameElement = document.createElement("h4");
+secondGameNameElement.textContent = secondGame.name;
+secondGameContainer.appendChild(secondGameNameElement);
